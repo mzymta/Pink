@@ -5,10 +5,19 @@
 
   &__inner {
     .container();
-    .bg(none,"@{img-url}bg-app-promo.png",right bottom, none, no-repeat);
+    .bg(none,"@{img-url}d-bg-app-promo.png",right bottom, 610px auto, no-repeat);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (min-resolution: 144dpi),
+    (min-resolution: 1.5dppx) {
+      background-image: url("@{img-url}d-bg-app-promo--2x.png");
+    }
+    @media (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+      background-image: url("@{img-url}d-bg-app-promo--3x.png");
+    }
   }
 
   &__header-wrap {
@@ -47,6 +56,7 @@
     }
 
     &:active {
+      .bg(@white);
       color: fadeout(@pink, 60%);
     }
   }

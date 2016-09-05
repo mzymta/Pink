@@ -33,7 +33,7 @@
         .absolute();
         width: 79px;
         height: 64px;
-        .bg(transparent,"@{img-url}quote-icon.png",0 0,cover,no-repeat);
+        .bg(transparent,"@{img-url}quotes.svg",0 0,79px 64px,no-repeat);
         left: 50%;
         margin-left: -40px;
         top: 0;
@@ -68,12 +68,26 @@
     }
 
     &__arrow--left {
-      .bg(transparent,"@{img-url}left-arrow.png",0 0,cover,no-repeat);
+      .bg(transparent,"@{img-url}left-arrow.png",0 0,22px 42px,no-repeat);
       left: 0;
+
+      @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          background-image: url("@{img-url}left-arrow--2x.png");
+      }
+      @media (min-resolution: 288dpi), (min-resolution: 3dppx) {
+          background-image: url("@{img-url}left-arrow--3x.png");
+      }
     }
     &__arrow--right {
       .bg(transparent,"@{img-url}right-arrow.png",0 0,cover,no-repeat);
       right: 0;
+
+      @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          background-image: url("@{img-url}right-arrow--2x.png");
+      }
+      @media (min-resolution: 288dpi), (min-resolution: 3dppx) {
+          background-image: url("@{img-url}right-arrow--3x.png");
+      }
     }
 
 }

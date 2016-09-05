@@ -1,0 +1,33 @@
+.social-block {
+    .no-style(list);
+    display: flex;
+
+    &__item {
+      margin-right: 12px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      width: 50px;
+      border: 3px solid @border-social;
+      border-radius: 50%;
+      transition: all 0.3s;
+
+      &:hover {
+        border-color: @border-social-h;
+      }
+
+      &:active {
+        border-color: @border-social;
+        opacity: 0.3;
+      }
+
+    }
+}

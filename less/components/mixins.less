@@ -1,7 +1,6 @@
 .container() {
-  width: @container-width;
+  width: @container-width-d;
   margin: 0 auto;
-  border: 1px dashed white;
   padding: 0 10px;
 }
 .relative() {
@@ -11,13 +10,13 @@
   position: absolute;
 }
 .regular() {
-  font-family: 'OpenSans-Regular', sans-serif;
+  font-family: @ff-regular;
 }
 .bold() {
-  font-family: 'OpenSans-Bold', sans-serif;
+  font-family: @ff-bold;
 }
 .light() {
-  font-family: 'OpenSans-Light', sans-serif;
+  font-family: @ff-light;
 }
 .bg(@color) {
   background-color: @color;
@@ -50,8 +49,8 @@
 }
 
 .bg-triangle (center; @size: 100px; @bg-color: @grey; @gr-color: @white) {
-  background: linear-gradient( to right bottom, @gr-color 50%, transparent 50%)  right top/50% @size no-repeat,
-  linear-gradient( to left bottom, @gr-color 50%, transparent 50%) left top/50% @size no-repeat;
+  background: linear-gradient( to right bottom, @gr-color 50%, transparent 50%)  right top/50.1% @size no-repeat,
+  linear-gradient( to left bottom, @gr-color 50%, transparent 50%) left top/50.1% @size no-repeat;
   .bg(@bg-color);
 }
 

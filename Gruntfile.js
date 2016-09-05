@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         concat: {
-            dist: {
+            js: {
                 src: [
                     'js/libs/*.js',
                     'js/script.js'
@@ -31,12 +31,19 @@ module.exports = function(grunt) {
                 }
             },
             styles: {
-                files: ['less/**/*.less','css/style.css'], // which files to watch
-                tasks: ['less','autoprefixer'],
+                files: ['less/**/*.less', 'css/style.css', 'css/build/style.css'], // which files to watch
+                tasks: ['less', 'autoprefixer', 'cssmin'],
                 options: {
                     nospawn: true
                 }
             },
+            images: {
+            files: ['img/*.{png,jpg,gif,svg}'], // which files to watch
+            tasks: ['imagemin'],
+            options: {
+                nospawn: true
+              }
+            }
 
         },
         less: {
@@ -57,6 +64,22 @@ module.exports = function(grunt) {
                     'css/build/style.css': 'css/style.css'
                 }
             }
+        },
+        cssmin: {
+            minify: {
+                src: 'css/build/style.css',
+                dest: 'css/build/style.min.css'
+            }
+        },
+        imagemin: {
+            dynamic: {
+                files: [{
+                    expand: true,
+                    cwd: 'img/',
+                    src: ['*.{png,jpg,gif,svg}'],
+                    dest: 'img/build/'
+                }]
+            }
         }
 
     });
@@ -67,8 +90,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
 
     // 4. Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'autoprefixer']);
+    grunt.registerTask('default', ['concat', 'uglify', 'less', 'autoprefixer', 'cssmin', 'imagemin']);
 
 };
