@@ -1,0 +1,73 @@
+.app-promo {
+  flex-grow: 1;
+  display: flex;
+  color: @white;
+
+  &__inner {
+    .container();
+    .bg(none,"@{img-url}bg-app-promo.png",right bottom, none, no-repeat);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__header-wrap {
+    width: 300px;
+    padding-top: 105px;;
+  }
+
+  &__header {
+    .no-style(h);
+    text-align: center;
+    font-size: @header-font-size;
+    line-height: @header-line-height;
+    .light();
+    margin-bottom: 53px;
+  }
+
+  &__download {
+    width: 300px;
+    .light();
+  }
+
+  &__download-btn {
+    .no-style(a);
+    .bold();
+    display: block;
+    text-align: center;
+    padding: 10px 0;
+    border: 3px solid @white;
+    border-radius: 28px;
+    transition: all 0.3s;
+    margin-bottom: 60px;
+
+    &:hover {
+      .bg(@white);
+      color: @pink;
+    }
+
+    &:active {
+      color: fadeout(@pink, 60%);
+    }
+  }
+
+  &__download-list {
+    .no-style(list);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 45px;
+  }
+
+  &__download-item {
+    margin-right: 33px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+
+
+
+}

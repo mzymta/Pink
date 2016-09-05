@@ -1,0 +1,64 @@
+.container() {
+  width: @container-width;
+  margin: 0 auto;
+  border: 1px dashed white;
+  padding: 0 10px;
+}
+.relative() {
+  position: relative;
+}
+.absolute() {
+  position: absolute;
+}
+.regular() {
+  font-family: 'OpenSans-Regular', sans-serif;
+}
+.bold() {
+  font-family: 'OpenSans-Bold', sans-serif;
+}
+.light() {
+  font-family: 'OpenSans-Light', sans-serif;
+}
+.bg(@color) {
+  background-color: @color;
+}
+.bg(@color;@url;@position;@size;@repeat) {
+  background-color: @color;
+  background-image: url(@url);
+  background-position: @position;
+  background-size: @size;
+  background-repeat: @repeat;
+}
+
+.no-style(list) {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.no-style(a) {
+  text-decoration: none;
+  color: inherit;
+}
+.no-style(h) {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+.no-style(p) {
+  margin: 0;
+  padding: 0;
+}
+
+.bg-triangle (center; @size: 100px; @bg-color: @grey; @gr-color: @white) {
+  background: linear-gradient( to right bottom, @gr-color 50%, transparent 50%)  right top/50% @size no-repeat,
+  linear-gradient( to left bottom, @gr-color 50%, transparent 50%) left top/50% @size no-repeat;
+  .bg(@bg-color);
+}
+
+.bg-triangle (square; @size: 100px; @bg-color: @grey; @gr-color: @white; @direction: left) {
+  .bg(@bg-color);
+  background-image: linear-gradient(to @direction top, transparent 50%, @gr-color 50%);
+  background-position:  0 0;
+  background-size: 101% 110px;
+  background-repeat: no-repeat;
+}

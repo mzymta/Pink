@@ -1,0 +1,43 @@
+.main-nav {
+  display: flex;
+
+
+  &__list {
+  .no-style(list);
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+  &__item {
+    color: @white;
+    margin-right: 65px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    .no-style(a);
+    padding: 8px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      border-bottom-color: @white;
+    }
+
+    &:active {
+      opacity: 0.3;
+      border-bottom-color: transparent;
+    }
+  }
+
+
+
+  &__toggle {
+    display: none;
+  }
+
+
+}

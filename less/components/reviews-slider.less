@@ -1,0 +1,79 @@
+.reviews-slider {
+
+    padding: 45px 25px 35px;
+    .relative();
+    flex-grow: 1;
+
+    &__item {
+
+      text-align: center;
+      display: none;
+    }
+
+    &__item--active {
+      display: block;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__pagination {
+      display: none;
+    }
+
+    &__text {
+      color: @black-lighter;
+      width: 700px;
+      padding-top: 115px;
+      .relative();
+      margin-bottom: 40px;
+
+      &::before {
+        content: "";
+        .absolute();
+        width: 79px;
+        height: 64px;
+        .bg(transparent,"@{img-url}quote-icon.png",0 0,cover,no-repeat);
+        left: 50%;
+        margin-left: -40px;
+        top: 0;
+      }
+    }
+
+    &__name-wrap{
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__name {
+      font-size: @header-small-font-size;
+      .bold();
+    }
+    &__info {
+      color: @black-lighter;
+    }
+
+    &__arrow {
+      .absolute();
+      width: 22px;
+      height: 42px;
+      top: 50%;
+      margin-top: - 42px / 2;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    &__arrow--left {
+      .bg(transparent,"@{img-url}left-arrow.png",0 0,cover,no-repeat);
+      left: 0;
+    }
+    &__arrow--right {
+      .bg(transparent,"@{img-url}right-arrow.png",0 0,cover,no-repeat);
+      right: 0;
+    }
+
+}
