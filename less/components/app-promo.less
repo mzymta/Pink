@@ -5,10 +5,11 @@
 
   &__inner {
     .container();
-    .bg(none,"@{img-url}d-bg-app-promo.png",right bottom, 610px auto, no-repeat);
+    .bg(none,"@{img-url}d-bg-app-promo.png",right 40px bottom, 563px auto, no-repeat);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding-top: 105px;
 
     @media (min-resolution: 144dpi),
     (min-resolution: 1.5dppx) {
@@ -18,25 +19,63 @@
     (min-resolution: 3dppx) {
       background-image: url("@{img-url}d-bg-app-promo--3x.png");
     }
+
+    @media (max-width: @screen-t) {
+      background-size: auto 545px;
+      background-position: right 10px bottom 0;
+      padding-top: 85px;
+    }
+
+    @media (max-width: @screen-m) {
+      background: none;
+      padding-top: 0;
+    }
   }
 
   &__header-wrap {
     width: 300px;
-    padding-top: 105px;;
+    margin-bottom: 53px;
+
+    @media (max-width: @screen-t) {
+      margin-bottom: 30px;
+    }
+    @media (max-width: @screen-m) {
+        width: 280px;
+        margin: 0;
+        height: 392px;
+        padding-top: 17px;
+    }
   }
 
   &__header {
     .no-style(h);
     text-align: center;
-    font-size: @header-font-size;
+    font-size: @header-bigger-font-size;
     line-height: @header-line-height;
     .light();
-    margin-bottom: 53px;
+
+    @media (max-width: @screen-t) {
+      font-size: @header-font-size;
+      line-height: @header-big-line-height;
+      padding: 0 30px;
+    }
+
+    @media (max-width: @screen-m) {
+      font-size: @header-small-font-size;
+      line-height: @main-line-height;
+      padding: 0;
+    }
   }
 
   &__download {
     width: 300px;
     .light();
+    padding-bottom: 30px;
+
+    @media (max-width: @screen-m) {
+      width: 280px;
+      padding-top: 28px;
+    }
   }
 
   &__download-btn {
@@ -46,9 +85,11 @@
     text-align: center;
     padding: 10px 0;
     border: 3px solid @white;
+    font-size: @main-font-size-bigger;
     border-radius: 28px;
     transition: all 0.3s;
     margin-bottom: 60px;
+    transition: all 0.3s;
 
     &:hover {
       .bg(@white);
@@ -59,6 +100,16 @@
       .bg(@white);
       color: fadeout(@pink, 60%);
     }
+
+    @media (max-width: @screen-t) {
+      font-size: @main-font-size;
+      padding: 9px 0;
+      margin-bottom: 42px;
+    }
+
+    @media (max-width: @screen-m) {
+      margin-bottom: 30px;
+    }
   }
 
   &__download-list {
@@ -66,7 +117,11 @@
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-bottom: 45px;
+    margin-bottom: 50px;
+
+    @media (max-width: @screen-t) {
+      margin-bottom: 30px;
+    }
   }
 
   &__download-item {
@@ -74,6 +129,16 @@
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+
+  &__download-info {
+    margin: 0;
+    text-align: center;
+
+    @media (max-width: @screen-m) {
+      font-size: @main-font-size-smaller;
+      line-height: floor(@main-font-size-smaller * 1.72);
     }
   }
 

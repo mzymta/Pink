@@ -6,6 +6,27 @@
   .no-style(list);
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
+
+  @media (max-width: @screen-t) {
+    display: none;
+    .absolute();
+    top: 100%;
+    left: 0;
+    margin-top: 1px;
+    }
+  }
+
+  &__list--open {
+
+    @media (max-width: @screen-t) {
+      display: block;
+      width: @screen-t;
+      }
+    @media (max-width: @screen-m) {
+        display: block;
+        width: @screen-m;
+        }
   }
 
   &__item {
@@ -15,6 +36,18 @@
     &:last-child {
       margin-right: 0;
     }
+
+    @media (max-width: @screen-t) {
+      display: block;
+      width: 100%;
+      .bg(@dark-blue);
+      margin: 0;
+      text-align: center;
+      .bold();
+      padding: 16px 0;
+      border-bottom: 1px solid @black;
+      border-top: 1px solid @menu-border-mobile;
+      }
   }
 
   &__link {
@@ -31,13 +64,112 @@
       opacity: 0.3;
       border-bottom-color: transparent;
     }
+
+    @media (max-width: @screen-t) {
+      border: none;
+
+      &:hover {
+        color: @pink;
+      }
+
+      &:active {
+        color: @pink;
+        opacity: 0.3;
+      }
+    }
   }
 
 
 
   &__toggle {
-    display: none;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 24px;
+    transition: all 0.3s;
+    .relative();
+
+    &::before,
+    &::after {
+      content: "";
+      width: 50px;
+      height: 4px;
+      background: @white;
+      display: block;
+      left: 0;
+      transition: all 0.3s;
+      .absolute();
+    }
+
+    &::before {
+      transform-origin: left top;
+      top: 0px;
+    }
+    &::after {
+      transform-origin: left bottom;
+      bottom: 0px;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        .bg(@pink);
+      }
+
+      .main-nav__hamburger {
+        .bg(@pink);
+      }
+    }
+
+    &:active {
+      opacity: 0.3;
+
+      &::before,
+      &::after {
+        .bg(@pink);
+      }
+
+      .main-nav__hamburger {
+        .bg(@pink);
+      }
+    }
+
+    @media (min-width: (@screen-t + 1)) {
+      display: none;
+    }
   }
+
+  &__toggle--close {
+    width: 23px;
+    height: 23px;
+
+
+    &::before,
+    &::after {
+      width: 30px;
+      height: 3px;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    .main-nav__hamburger {
+      opacity: 0;
+    }
+  }
+
+  &__hamburger {
+    .bg(@white);
+    width: 50px;
+    height: 4px;
+    transition: all 0.3s;
+  }
+
 
 
 }

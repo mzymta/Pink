@@ -5,7 +5,15 @@ html,body {
   font-size: @main-font-size;
   line-height: @main-line-height;
   color: @black;
-  min-width: @container-width-d;
+  min-width: (@container-width-d + 40);
+
+  @media (max-width: @screen-t) {
+    min-width: @screen-t;
+  }
+
+  @media (max-width: @screen-m) {
+    min-width: @screen-m;
+  }
 }
 
 body * {

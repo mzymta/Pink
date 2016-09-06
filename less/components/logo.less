@@ -2,6 +2,15 @@
     margin-top: -10px;
     margin-right: 70px;
 
+    @media (max-width: @screen-m) {
+      margin-top: 0;
+    }
+
+    &__wrap {
+      display: flex;
+      align-items: baseline;
+    }
+
     &__glasses-wrap {
         display: inline-block;
         margin-right: 12px;
@@ -14,6 +23,10 @@
             .absolute();
             opacity: 0;
             transition: opacity 0.3s;
+        }
+
+        @media (max-width: 320px) {
+          display: none!important;
         }
     }
 
@@ -48,6 +61,32 @@
               background-image: url("@{img-url}d-logo-sparkle--3x.png");
             }
           }
+
+          @media (max-width: @screen-t) {
+            display: none;
+          }
+    }
+
+    &__glasses-wrap--tablet {
+        display: none;
+
+        &::before {
+          .bg(none; "@{img-url}t-header-logo-glasses-h.png"; 0 0; 59px 40px; no-repeat);
+
+          @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+            background-image: url("@{img-url}t-header-logo-glasses-h--2x.png");
+          }
+
+          @media (min-resolution: 288dpi), (min-resolution: 3dppx) {
+            background-image: url("@{img-url}t-header-logo-glasses-h--3x.png");
+          }
+        }
+
+        @media (max-width: @screen-t) {
+          display: inline-block;
+        }
+
+
     }
 
     &__glasses {
@@ -56,6 +95,16 @@
 
     &__text {
         fill: @white;
+        transition: all 0.3s;
+
+        @media (max-width: @screen-m) {
+          &:hover {
+            fill: @pink;
+          }
+          &:active {
+            fill: @white;
+          }
+        }
     }
 
     &:hover {
@@ -67,6 +116,7 @@
           opacity: 1;
         }
     }
+
 
     &:active {
       opacity: 0.3;

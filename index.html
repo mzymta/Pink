@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pink</title>
     <link rel="stylesheet" href="css/build/style.css">
     <script type="text/javascript" src="js/build/production.min.js"></script>
@@ -70,6 +71,10 @@
                                 <img class="logo__glasses logo__glasses--desktop" src="img/build/d-header-logo-glasses.png" srcset="img/build/d-header-logo-glasses--2x.png 2x,
                             img/build/d-header-logo-glasses--3x.png 3x" alt="" width="59" height="40">
                             </div>
+                            <div class="logo__glasses-wrap logo__glasses-wrap--tablet">
+                                <img class="logo__glasses logo__glasses--tablet" src="img/build/t-header-logo-glasses.png" srcset="img/build/t-header-logo-glasses--2x.png 2x,
+                            img/build/t-header-logo-glasses--3x.png 3x" alt="" width="59" height="40">
+                            </div>
                             <svg width="74.318" height="23.041" class="logo__text">
                                 <use xmlns:xlink="http://www/w3/org/1999/xlink" xlink:href="#icon-logo-pink-text"></use>
                             </svg>
@@ -78,20 +83,22 @@
                     </a>
                     <nav class="main-nav">
                         <ul class="main-nav__list">
-                            <li class="main-nav__item main-nav__item--active"><a href="#" class="main-nav__link">Информация</a></li>
+                            <li class="main-nav__item"><a href="#" class="main-nav__link">Информация</a></li>
                             <li class="main-nav__item"><a href="#" class="main-nav__link">Возможности</a></li>
                             <li class="main-nav__item"><a href="#" class="main-nav__link">Отзывы</a></li>
                             <li class="main-nav__item"><a href="#" class="main-nav__link">Стоимость</a></li>
 
                         </ul>
-                        <a href="#" class="main-nav__toggle main-nav__toggle--close"></a>
+                        <a href="#" class="main-nav__toggle">
+                          <div class="main-nav__hamburger"></div>
+                        </a>
                     </nav>
                 </div>
             </div>
             <section class="app-promo">
                 <div class="app-promo__inner">
                     <div class="app-promo__header-wrap">
-                        <h1 class="app-promo__header">Взгляните<br>на жизнь<br>иначе!</h1>
+                        <h1 class="app-promo__header">Взгляните на жизнь иначе!</h1>
                     </div>
                     <div class="app-promo__download">
                         <a href="#" class="app-promo__download-btn">Скачать приложение</a>
@@ -123,7 +130,7 @@
                 </div>
             </section>
         </header>
-        <main>
+        <main style="display: none;">
             <section class="app-effect">
                 <div class="app-effect__top-wrap">
                     <div class="app-effect__top">
@@ -327,7 +334,7 @@
                 <div class="map__canvas" id="map"></div>
             </div>
         </main>
-        <footer class="page-footer">
+        <footer class="page-footer" style="display:none;">
             <div class="page-footer__inner">
                 <a href="#" class="footer-logo">
                     <div class="footer-logo__wrap">

@@ -1,7 +1,7 @@
-@container-width-d: 960px;
-
 //fonts
 @main-font-size: 18px;
+@main-font-size-bigger: floor(@main-font-size * 1.167);
+@main-font-size-smaller: floor(@main-font-size * 0.78);
 @header-font-size: floor(@main-font-size * 2.23); //40px
 @header-bigger-font-size: floor(@main-font-size * 2.78); //50px
 @header-smaller-font-size: floor(@main-font-size * 1.67); //30px
@@ -10,6 +10,7 @@
 
 @main-line-height: floor(@main-font-size * 1.67);
 @header-line-height: @header-font-size * 1.5;
+@header-big-line-height: floor(@main-font-size * 2.78);
 @header-bigger-line-height: @header-bigger-font-size * 1.2;
 
 @ff-regular: 'OpenSans-Regular', sans-serif;
@@ -25,12 +26,19 @@
 @grey: #f2f2f2;
 @dark-blue: #283645;
 @border: #e5e5e5;
+@menu-border-mobile: #485461;
 @border-social: #e9ebec;
 @border-social-h: #283645;
 @img-url: "../../img/build/";
 
 //screens
 @screen-max: 2000px;
+
 @screen-d: 1200px;
+@container-width-d: 960px;
+
 @screen-t: 700px;
+@container-width-t: 640px;
+
 @screen-m: 320px;
+@container-width-m: 300px;

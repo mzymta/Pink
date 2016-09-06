@@ -2,6 +2,14 @@
   width: @container-width-d;
   margin: 0 auto;
   padding: 0 10px;
+
+  @media (max-width: @screen-t) {
+    width: @container-width-t;
+  }
+
+  @media (max-width: @screen-m) {
+    width: @container-width-m;
+  }
 }
 .relative() {
   position: relative;

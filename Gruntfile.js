@@ -30,20 +30,27 @@ module.exports = function(grunt) {
                     spawn: false,
                 }
             },
-            styles: {
-                files: ['less/**/*.less', 'css/style.css', 'css/build/style.css'], // which files to watch
-                tasks: ['less', 'autoprefixer', 'cssmin'],
+            less: {
+                files: ['less/**/*.less'], // which files to watch
+                tasks: ['less'],
                 options: {
                     nospawn: true
                 }
             },
-            images: {
+            css: {
+                files: ['css/style.css', 'css/build/style.css'], // which files to watch
+                tasks: ['autoprefixer', 'cssmin'],
+                options: {
+                    nospawn: true
+                }
+            },
+          /*  images: {
             files: ['img/*.{png,jpg,gif,svg}'], // which files to watch
             tasks: ['imagemin'],
             options: {
                 nospawn: true
               }
-            }
+            }*/
 
         },
         less: {
