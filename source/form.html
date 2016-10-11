@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/form.css">
+  </head>
+
+  <body>
+
+    <div class="form-wrapper">
+      <form action="/" class="page-form" method="post">
+        <div class="page-form__date">
+          <h2 class="form-header">Даты вашей поездки</h2>
+
+          <div class="page-form__field">
+            <label for="number-of-days">Длительность пребывания</label>
+            <div class="page-form__field-wrap">
+              <button class="control-btn control-btn--plus" type="button">+</button>
+              <input name="days" type="text" class="page-form__input page-form__input--control">
+              <button class="control-btn control-btn--minus" type="button">-</button>
+            </div>
+          </div>
+          <div class="page-form__field">
+            <label for="number-of-days">дата приезда</label>
+            <div class="page-form__field-wrap">
+              <input name="arrival-date" type="text" class="page-form__input">
+            </div>
+          </div>
+          <div class="page-form__field">
+            <label for="number-of-days">дата отъезда</label>
+            <div class="page-form__field-wrap">
+              <input name="leave-date" type="text" class="page-form__input">
+            </div>
+          </div>
+
+        </div>
+        <div class="page-form__guest">
+          <h2 class="form-header">Количество человек</h2>
+          	<div class="page-form__guest-wrap">
+	          <div class="page-form__field page-form__field--adults">
+	            <label for="number-of-adults">Количество взрослых</label>
+	            <div class="page-form__field-wrap">
+	              <button class="control-btn control-btn--plus" type="button">+</button>
+	              <input name="adults-num" type="text" class="page-form__input page-form__input--control page-form__input--num" id="number-of-adults">
+	              <button class="control-btn control-btn--minus" type="button">-</button>
+	            </div>
+	          </div>
+	          <div class="page-form__field page-form__field--kids">
+	            <label for="number-of-kids">Количество детей</label>
+	            <div class="page-form__field-wrap">
+	              <button class="control-btn control-btn--plus" type="button">+</button>
+	              <input name="kids-num" type="text" class="page-form__input page-form__input--control page-form__input--num" id="number-of-kids">
+	              <button class="control-btn control-btn--minus" type="button">-</button>
+	            </div>
+	          </div>
+	        </div>
+          	<ul class="guest-info guest-info--adults">
+
+           	</ul>
+           	<ul class="guest-info guest-info--kids">
+
+          	</ul>
+        </div>
+        <div class="page-form__file">
+          <label class="btn" for="file-upload">Загрузите фотографии</label>
+          <input type="file" id="file-upload" class="page-form__file-input" multiple>
+          <ul class="page-form__file-preview">
+
+          </ul>
+        </div>
+        <div class="page-form__field">
+          <button class="btn">Отправить форму</button>
+        </div>
+      </form>
+    </div>
+
+	<script type="text/html" id="adult-info">
+
+			<div class="page-form__field">
+                <label for="adult-lastname{{index}}">Фамилия Взрослого №{{index}}</label>
+                <div class="page-form__field-wrap">
+                  <input name="adultLastName{{index}}" type="text" class="page-form__input" id="adult-lastname{{index}}">
+                </div>
+              </div>
+              <div class="page-form__field">
+                <label for="adult-firstname{{index}}">Имя Взрослого №{{index}}</label>
+                <div class="page-form__field-wrap">
+
+                  <input name="adultFirstName{{index}}" type="text" class="page-form__input" id="adult-firstname{{index}}">
+
+                </div>
+              </div>
+              <div class="page-form__field">
+                <label for="adult-lastname{{index}}">Отчество Взрослого №{{index}}</label>
+                <div class="page-form__field-wrap">
+
+                  <input name="adultLastName{{index}}" type="text" class="page-form__input" id="adult-lastname{{index}}">
+
+                </div>
+              </div>
+
+
+	</script>
+	<script type="text/html" id="kid-info">
+
+			<div class="page-form__field">
+                <label for="kid-lastname{{index}}">Фамилия Ребенка №{{index}}</label>
+                <div class="page-form__field-wrap">
+
+                  <input name="kidLastName{{index}}" type="text" class="page-form__input" id="kid-lastname{{index}}">
+
+                </div>
+              </div>
+              <div class="page-form__field">
+                <label for="kid-firstname{{index}}">Имя Ребенка №{{index}}</label>
+                <div class="page-form__field-wrap">
+
+                  <input name="kidFirstName{{index}}" type="text" class="page-form__input" id="kid-firstname{{index}}">
+
+                </div>
+              </div>
+              <div class="page-form__field">
+                <label for="kid-lastname{{index}}">Отчество Ребенка №{{index}}</label>
+                <div class="page-form__field-wrap">
+
+                  <input name="kidLastName{{index}}" type="text" class="page-form__input" id="kid-lastname{{index}}">
+
+                </div>
+              </div>
+
+	</script>
+	<script type="text/html" id="image-template">
+
+			<div class="page-form__image-wrap">
+          		<img src="{{image}}" alt="{{name}}" class="page-form__image">
+      </div>
+      <div class="page-form__image-delete" title="delete">X</div>
+
+	</script>
+
+	<script type="text/javascript" src="../bower_components/mustache.js/mustache.min.js"></script>
+	<script type="text/javascript" src="js/form1.js"></script>
+  </body>
+
+</html>

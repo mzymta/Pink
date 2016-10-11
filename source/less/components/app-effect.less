@@ -1,0 +1,208 @@
+.app-effect {
+  //***********TOP***************
+  &__top-wrap {
+    .bg(@white);
+  }
+
+  &__top {
+    .container();
+    padding-top: 65px;
+    padding-bottom: 80px;
+
+    @media (max-width: @screen-t) {
+      padding-top: 50px;
+      padding-bottom: 45px;
+    }
+
+    @media (max-width: @screen-m) {
+      padding-top: 45px;
+      padding-bottom: 27px;
+    }
+  }
+
+  &__header {
+    .light();
+    .no-style(h);
+    font-size: @header-bigger-font-size;
+    line-height: @header-bigger-line-height;
+    text-align: center;
+    color: @black-lighter;
+
+    @media (max-width: @screen-t) {
+      font-size: @header-font-size;
+      line-height: @header-big-line-height;
+    }
+
+    @media (max-width: @screen-m) {
+      font-size: @header-small-font-size;
+      line-height: @main-line-height;
+    }
+  }
+
+  &__header-top {
+    display: block;
+
+    @media (max-width: @screen-m) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__header-bottom {
+    display: block;
+  }
+
+  //***********Middle***************
+  &__middle-wrap {
+    .bg-triangle(square; 110px);
+
+    @media (max-width: @screen-t) {
+      background-size: 101% 55px;
+    }
+    @media (max-width: @screen-m) {
+      background-size: 101% 33px;
+    }
+  }
+
+  &__middle {
+    .container();
+
+    @media (max-width: @screen-t) {
+      min-height: 485px;
+      .bg(none, "@{img-url}t-bg-effect-middle.png", 1.5625% 100%, 271px 482px, no-repeat);
+
+      @media (min-resolution: 144dpi),
+      (min-resolution: 1.5dppx) {
+        background-image: url("@{img-url}t-bg-effect-middle--2x.png");
+      }
+      @media (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+        background-image: url("@{img-url}t-bg-effect-middle--3x.png");
+      }
+    }
+
+    @media (min-width: 900px) and (max-width: @screen-t) {
+      background-position: 10% 100%;
+    }
+
+    @media (max-width: @screen-m) {
+      padding-bottom: 320px;
+
+      .bg(none, "@{img-url}m-bg-effect-middle.png", 50% bottom, 157px 288px, no-repeat);
+
+      @media (min-resolution: 144dpi),
+      (min-resolution: 1.5dppx) {
+        background-image: url("@{img-url}m-bg-effect-middle--2x.png");
+      }
+      @media (min-resolution: 288dpi),
+      (min-resolution: 3dppx) {
+        background-image: url("@{img-url}m-bg-effect-middle--3x.png");
+      }
+    }
+  }
+
+  &__middle-img-wrap {
+    display: none;
+  }
+
+  //***********Bottom***************
+
+  &__bottom-wrap {
+    .bg(@grey);
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+    @media (max-width: @screen-t) {
+      .bg(@white);
+      font-size: @main-font-size-smaller;
+      line-height: @header-small-font-size;
+      padding-top: 37px;
+      padding-bottom: 37px;
+    }
+
+    @media (max-width: @screen-m) {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    .container();
+    display: flex;
+    align-items: center;
+    min-height: 346px;
+    .bg(transparent; "@{img-url}d-clock-icon.png";10px 0;301px 346px;no-repeat);
+    @media (min-resolution: 144dpi),
+    (min-resolution: 1.5dppx) {
+      background-image: url("@{img-url}d-clock-icon--2x.png");
+    }
+    @media (min-resolution: 288dpi),
+    (min-resolution: 3dppx) {
+      background-image: url("@{img-url}d-clock-icon--3x.png");
+    }
+
+    @media (max-width: @screen-t) {
+      background-size: 262px auto;
+      background-position: 1.5625% 0;
+      min-height: 309px;
+    }
+
+    @media (min-width: 900px) and (max-width: @screen-t) {
+      background-position: 10% 0;
+    }
+
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+      height: 346px;
+
+      @media (max-width: @screen-t) {
+        height: 309px;
+      }
+    }
+  }
+
+  &__bottom-text-wrap {
+    margin-left: 365px;
+
+    @media (max-width: @screen-t) {
+      margin-left: 48.4375%;
+    }
+  }
+
+  &__bottom-header {
+    .no-style(h);
+    .bold();
+    font-size: @header-smaller-font-size;
+    line-height: @main-line-height;
+    margin: 35px 0 25px;
+
+    @media (max-width: @screen-t) {
+      margin: 0 0 15px;
+      padding-right: 80px;
+    }
+  }
+
+  &__bottom-text {
+    .no-style(p);
+    color: @black-lighter;
+    margin-bottom: 40px;
+
+    @media (max-width: @screen-t) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__bottom-link {
+    color: @pink;
+    transition: all .3s;
+    border-bottom: 1px solid @pink;
+
+    &:hover {
+      color: @black-lighter;
+      border-color: @black-lighter;
+    }
+
+    &:active {
+      opacity: .3;
+      color: @black-lighter;
+      border-color: transparent;;
+    }
+  }
+}

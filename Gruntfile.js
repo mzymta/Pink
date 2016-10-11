@@ -1,106 +1,115 @@
 module.exports = function(grunt) {
 
-    // 1. Вся настройка находится здесь
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
-        concat: {
-            js: {
-                src: [
-                    'js/libs/*.js',
-                    'js/script.js'
-                ],
-                dest: 'js/build/production.js'
-            }
-        },
-        uglify: {
-            build: {
-                src: 'js/build/production.js',
-                dest: 'js/build/production.min.js'
-            }
-        },
-        watch: {
-            options: {
-                livereload: true
-            },
-            scripts: {
-                files: ['js/*.js'],
-                tasks: ['concat', 'uglify'],
-                options: {
-                    spawn: false,
-                }
-            },
-            less: {
-                files: ['less/**/*.less'], // which files to watch
-                tasks: ['less'],
-                options: {
-                    nospawn: true
-                }
-            },
-            css: {
-                files: ['css/style.css', 'css/build/style.css'], // which files to watch
-                tasks: ['autoprefixer', 'cssmin'],
-                options: {
-                    nospawn: true
-                }
-            },
-          /*  images: {
-            files: ['img/*.{png,jpg,gif,svg}'], // which files to watch
-            tasks: ['imagemin'],
-            options: {
-                nospawn: true
-              }
-            }*/
-
-        },
         less: {
-            development: {
-                options: {
-                    compress: true,
-                    yuicompress: true,
-                    optimization: 2
-                },
+            style: {
                 files: {
-                    "css/style.css": "less/style.less"
+                    "build/css/style.css": ["source/less/style.less"]
                 }
             }
         },
         autoprefixer: {
-            dist: {
+            options: {
+                browsers: ["last 2 version", "ie 10"]
+            },
+            style: {
+                src: "build/css/style.css"
+            }
+        },
+        cmq: {
+            style: {
                 files: {
-                    'css/build/style.css': 'css/style.css'
+                    "build/css/style.css": ["build/css/style.css"]
                 }
             }
         },
         cssmin: {
-            minify: {
-                src: 'css/build/style.css',
-                dest: 'css/build/style.min.css'
+            style: {
+                options: {
+                    keepSpecialComments: 0,
+                    report: "gzip"
+                },
+                files: {
+                    "build/css/style.min.css": ["build/css/style.css"],
+                }
             }
         },
-        imagemin: {
-            dynamic: {
+        copy: {
+            build: {
                 files: [{
                     expand: true,
-                    cwd: 'img/',
-                    src: ['*.{png,jpg,gif,svg}'],
-                    dest: 'img/build/'
+                    cwd: "source",
+                    src: [
+                        "img/**",
+                        "js/**",
+                        "index.html",
+                        "form.html",
+                        "fonts/**"
+                    ],
+                    dest: "build"
                 }]
+            }
+        },
+        concat: {
+            scripts: {
+                src: [
+                    'bower_components/es5-shim/es5-shim.min.js',
+                    'bower_components/es5-shim/es5-sham.min.js',
+                    'bower_components/flexie/dist/flexie.min.js',
+                    'bower_components/mustache.js/mustache.min.js',
+                    'bower_components/picturefill/dist/picturefill.min.js',
+                    'bower_components/respond/dest/respond.min.js',
+                    'bower_components/tap/dist/tap.min.js',
+                    'bower_components/smooth-scroll/smooth-scroll.min.js',
+                    'build/js/script.js'
+                ],
+                dest: 'build/js/production.js'
+            }
+        },
+        uglify: {
+            scripts: {
+                src: 'build/js/production.js',
+                dest: 'build/js/production.min.js'
+            }
+        },
+        watch: {
+            scripts: {
+                files: ['source/js/*.js'],
+                tasks: ['copy', 'concat', 'uglify'],
+                options: {
+                    spawn: false,
+                },
+            },
+            style: {
+              files: ['source/**/*.less'],
+              tasks: ['less',
+                  'autoprefixer',
+                  'cmq',
+                  'cssmin'],
+              options: {
+                  spawn: false,
+              }
+            },
+            other: {
+              files: ['source/*.html', 'source/img/**', 'source/fonts/**'],
+              tasks: ['copy'],
+              options: {
+                  spawn: false,
+              }
             }
         }
 
     });
 
-    // 3. Тут мы указываем Grunt, что хотим использовать этот плагин
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-less');
-    grunt.loadNpmTasks('grunt-autoprefixer');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    require('load-grunt-tasks')(grunt);
 
-    // 4. Указываем, какие задачи выполняются, когда мы вводим «grunt» в терминале
-    grunt.registerTask('default', ['concat', 'uglify', 'less', 'autoprefixer', 'cssmin', 'imagemin']);
-
-};
+    grunt.registerTask('build', ['less',
+        'autoprefixer',
+        'cmq',
+        'cssmin',
+        'copy',
+        'concat',
+        'uglify'
+    ]);
+}

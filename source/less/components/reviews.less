@@ -1,0 +1,13 @@
+.reviews {
+  background: @white;
+
+  &__inner {
+    .container();
+    min-height: 400px;
+    display: flex;
+
+    @media (max-width: @screen-t){
+      min-height: 292px;
+    }
+  }
+}

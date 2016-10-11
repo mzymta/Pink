@@ -1,0 +1,39 @@
+.map {
+  .relative();
+
+  &__decoration {
+    .absolute();
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 125px;
+    margin-top: -1px;
+    .bg-triangle(center; 125px;
+    @bg-color: transparent);
+    z-index: 1000;
+
+    @media (max-width: @screen-t) {
+      .bg-triangle(center; 70px;
+      @bg-color: transparent);
+      height: 70px;
+    }
+
+    @media (max-width: @screen-m) {
+      .bg-triangle(center; 33px;
+      @bg-color: transparent);
+      height: 33px;
+    }
+  }
+  &__canvas {
+    min-height: 524px;
+    width: 100%;
+
+    @media (max-width: @screen-t) {
+      min-height: 377px;
+    }
+
+    @media (max-width: @screen-m) {
+      min-height: 200px;
+    }
+  }
+}
